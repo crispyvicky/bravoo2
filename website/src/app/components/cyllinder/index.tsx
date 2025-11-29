@@ -72,7 +72,7 @@ export const Cyllinder: React.FC<CyllinderProps> = ({ experiments }) => {
             />
 
             {experiments.map((experiment, i) => {
-              const author = experiment.contributors[0];
+              const author = experiment.contributors?.[0];
 
               return (
                 <div className={s["item"]} data-experiment={i} key={i}>
@@ -80,7 +80,7 @@ export const Cyllinder: React.FC<CyllinderProps> = ({ experiments }) => {
                   <div className={s["info"]}>
                     <Link
                       className={s["link"]}
-                      href={"https://lab.basement.studio" + experiment.href}
+                      href={experiment.href}
                       target="_blank"
                       rel="noopener"
                     >
@@ -99,10 +99,10 @@ export const Cyllinder: React.FC<CyllinderProps> = ({ experiments }) => {
 
                     {author?.name && (
                       <p className={s["credits"]}>
-                        {/* <span>Made by</span>{" "} */}
-                        {/* <Link href={author.url} target="_blank" rel="noopener">
+                        <span>Made by</span>{" "}
+                        <Link href={author.url} target="_blank" rel="noopener">
                           {author?.name}
-                        </Link> */}
+                        </Link>
                       </p>
                     )}
                   </div>

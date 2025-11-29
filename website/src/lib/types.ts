@@ -5,7 +5,7 @@ export type Experiment = {
   tags: string[]
   number: number
   og: string | null
-  contributors: Array<{
+  contributors?: Array<{
     id: string
     url: string
     name: string
