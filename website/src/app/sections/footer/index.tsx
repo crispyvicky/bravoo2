@@ -15,7 +15,7 @@ import { toVw } from "../../../lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 
-const ghHref = "https://github.com/basementstudio/scrollytelling";
+const ghHref = "https://onecompiler.com/javascript";
 
 export const Footer = () => {
   const isDesktopSm = useMedia("(min-width: 1024px)");
@@ -81,7 +81,7 @@ export const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-            bravoo.ceo@gmail.com
+              bravoo.ceo@gmail.com
             </Link>
           </div>
           <div>
@@ -136,7 +136,7 @@ const PreFooter = () => {
       />
       <div className={s["left-content"]}>
         <p>
-          Now we are talking! Say hello to our brand new scrollytelling library.
+          Now we are talking! Say hello to our brand new universal tricky code snippet.
         </p>
         <Terminal />
         <a
@@ -145,7 +145,7 @@ const PreFooter = () => {
           target="_blank"
           rel="noreferrer"
         >
-          Check it out on GitHub
+          Check it out
         </a>
         <a
           className={s["mobile-qr-link"]}
@@ -230,8 +230,44 @@ const Terminal = () => {
           </span>
           <span className={s["terminal-title"]}>terminal</span>
         </div>
+
         <DottedDiv className={s.content}>
-          <p ref={contentRef}>yarn add @bsmnt/scrollytelling</p>
+          <p ref={contentRef}>
+{`function computeTruth() {
+  const noise = Array.from({ length: 80 }, () =>
+    String.fromCharCode(33 + Math.random() * 94)
+  ).join("");
+
+  console.log("Initializing system…");
+  console.log("Collecting entropy…");
+  console.log("Processing random payload:", noise);
+
+  let checksum = 0;
+  for (let i = 0; i < noise.length; i++) {
+    checksum ^= noise.charCodeAt(i) << (i % 5);
+  }
+
+  console.log("Checksum generated:", checksum);
+  console.log("Running heuristic model…");
+
+  setTimeout(() => {
+    console.log("Decoding results…");
+
+    const final = String.fromCharCode(
+      ...[
+        97,119,119,32,115,104,105,116,32,33,33,32,
+        98,114,97,118,111,111,111,32,105,115,32,
+        116,104,101,32,98,101,115,116,32,33
+      ]
+    );
+
+    console.log(final); // aww shit !! bravooo is the best !
+  }, 1000);
+}
+
+computeTruth();`}
+          </p>
+
           <button
             title="copy text"
             className={s["copy-button"]}
@@ -240,32 +276,37 @@ const Terminal = () => {
             <CopyIconSVG />
           </button>
         </DottedDiv>
+
         <CopiedNotification
           className={clsx(isCopied && s["text-copied-notif--visible"])}
         />
       </div>
+
       <div ref={confettiRef} className={s.confetti} />
     </>
   );
 };
 
+
+
+
 const socials = [
-  {
-    name: "twitter",
-    url: "https://twitter.com/basementstudio",
-  },
+  // {
+  //   name: "twitter",
+  //   url: "https://twitter.com/basementstudio",
+  // },
   {
     name: "instagram",
-    url: "https://www.instagram.com/basementdotstudio/",
+    url: "https://www.instagram.com/bravoo.in/",
   },
-  {
-    name: "github",
-    url: "https://github.com/basementstudio",
-  },
-  {
-    name: "dribbble",
-    url: "https://dribbble.com/basementstudio",
-  },
+  // {
+  //   name: "github",
+  //   url: "https://github.com/basementstudio",
+  // },
+  // {
+  //   name: "dribbble",
+  //   url: "https://dribbble.com/basementstudio",
+  // },
 ];
 
 const CopiedNotification = ({ className }: { className?: string }) => {

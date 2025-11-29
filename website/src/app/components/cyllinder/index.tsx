@@ -99,10 +99,10 @@ export const Cyllinder: React.FC<CyllinderProps> = ({ experiments }) => {
 
                     {author?.name && (
                       <p className={s["credits"]}>
-                        <span>Made by</span>{" "}
-                        <Link href={author.url} target="_blank" rel="noopener">
+                        {/* <span>Made by</span>{" "} */}
+                        {/* <Link href={author.url} target="_blank" rel="noopener">
                           {author?.name}
-                        </Link>
+                        </Link> */}
                       </p>
                     )}
                   </div>

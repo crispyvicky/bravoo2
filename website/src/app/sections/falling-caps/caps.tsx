@@ -1,21 +1,10 @@
 import * as Scrollytelling from "@bsmnt/scrollytelling";
 import React, { useMemo } from "react";
-import { Float, useGLTF } from "@react-three/drei";
-import { GLTF } from "three-stdlib";
+import { Float, useTexture } from "@react-three/drei";
 import { Euler, Vector3 } from "three";
+import * as THREE from "three";
 import { useThree } from "@react-three/fiber";
 import { getTimeline } from "../../../lib/utils";
-
-type GLTFResult = GLTF & {
-  nodes: {
-    Sphere007: THREE.Mesh;
-    Sphere007_1: THREE.Mesh;
-  };
-  materials: {
-    ["m_Cap-v2"]: THREE.MeshStandardMaterial;
-    m_Outline: THREE.MeshStandardMaterial;
-  };
-};
 
 const capProps: { position: Vector3; rotation: Euler; progress: number }[] = [
   {
@@ -63,42 +52,33 @@ const capProps: { position: Vector3; rotation: Euler; progress: number }[] = [
 export const CapsModel = () => {
   const innerRef = React.useRef<THREE.Group>(null);
   const { width } = useThree((state) => state.viewport);
-  const { nodes, materials } = useGLTF("/models/3d.glb") as GLTFResult;
 
-  const clonedMaterials: {
-    "m_Cap-v2": THREE.MeshStandardMaterial;
-    m_Outline: THREE.MeshStandardMaterial;
-  }[] = useMemo(() => {
-    materials["m_Cap-v2"].transparent = true;
-    materials["m_Cap-v2"].opacity = 0;
-    materials["m_Outline"].transparent = true;
-    materials["m_Outline"].opacity = 0;
+  // Load texture for the floating images
+  const texture = useTexture("/images/parallax/smile.png");
 
-    return Array(capProps.length)
-      .fill(0)
-      .map((_, idx) => {
-        const clonedMaterials = {
-          ["m_Cap-v2"]: materials["m_Cap-v2"].clone(),
-          ["m_Outline"]: materials["m_Outline"].clone(),
-        };
-
-        clonedMaterials["m_Cap-v2"].userData.idx = idx;
-        clonedMaterials["m_Outline"].userData.idx = idx;
-
-        return clonedMaterials;
+  // Create materials for each instance
+  const clonedMaterials = useMemo(() => {
+    return capProps.map((_, idx) => {
+      const mat = new THREE.MeshBasicMaterial({
+        map: texture,
+        transparent: true,
+        opacity: 0,
+        side: THREE.DoubleSide,
+        alphaTest: 0.1,
       });
-  }, [materials]);
+      mat.userData.idx = idx;
+      return mat;
+    });
+  }, [texture]);
 
   const responsiveVPWidth = Math.max(width, 4);
   const halfViewportWidth = responsiveVPWidth / 2;
   const fadeInYoffset = 0.1;
 
-
   const handleUpdate = React.useCallback(
     (idx: number) => {
-      const currMaterials = clonedMaterials[idx];
-
-      if (!currMaterials) return;
+      const material = clonedMaterials[idx];
+      if (!material) return;
 
       const currCapProps = capProps[idx];
       const currObj = innerRef.current?.children[idx] as THREE.Object3D;
@@ -111,8 +91,8 @@ export const CapsModel = () => {
         .multiplyScalar(halfViewportWidth);
       const invProgress = 1 - currCapProps.progress;
 
-      currMaterials["m_Cap-v2"].opacity = currCapProps.progress;
-      currMaterials["m_Outline"].opacity = currCapProps.progress;
+      // Update opacity
+      material.opacity = currCapProps.progress;
 
       currObj.rotation.y =
         currCapProps.rotation.y +
@@ -168,14 +148,9 @@ export const CapsModel = () => {
               key={idx}
             >
               <Float>
-                <mesh
-                  geometry={nodes.Sphere007.geometry}
-                  material={clonedMaterials[idx]?.["m_Cap-v2"]}
-                />
-                <mesh
-                  geometry={nodes.Sphere007_1.geometry}
-                  material={clonedMaterials[idx]?.["m_Outline"]}
-                />
+                <mesh material={clonedMaterials[idx]}>
+                  <planeGeometry args={[1, 1]} />
+                </mesh>
               </Float>
             </group>
           );

@@ -33,7 +33,7 @@ export const LabIntro = () => {
                 fill="#EFEFEF"
               />
             </svg>
-            <span>the lab</span>
+            {/* <span>the lab</span> */}
           </div>
         </Scrollytelling.Parallax>
 

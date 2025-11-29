@@ -76,7 +76,7 @@
       gap: tovw(16px, "mobile");
     }
 
-    > div {
+    >div {
       display: flex;
       flex-direction: column;
 
@@ -209,31 +209,54 @@
     .content {
       position: relative;
       display: flex;
-      align-items: center;
-      padding: 0 tovw(28px, "desktop-large", 28px);
-      height: tovw(100px, "desktop-large", 100px);
-      text-transform: uppercase;
+      align-items: flex-start;
+      padding: tovw(20px, "desktop-large", 20px) tovw(28px, "desktop-large", 28px);
+      padding-right: tovw(60px, "desktop-large", 50px);
+      /* Space for copy button */
+
+      height: auto;
+      max-height: tovw(260px, "desktop-large", 260px);
+      overflow-y: auto;
+
+      white-space: pre-wrap;
+      text-transform: none;
+
       font-family: var(--font-jetbrains-mono);
+      font-size: tovw(10px, "desktop-large", 8px);
+      line-height: 1.4;
+
       z-index: 50;
 
       @media screen and (max-width: 800px) {
         height: unset;
         padding: tovw(20px, "mobile") tovw(26px, "mobile");
+        padding-right: tovw(50px, "mobile");
+        font-size: tovw(8px, "mobile");
       }
 
       p {
-        font-size: tovw(32px, "desktop-large", 18px);
-
-        @media screen and (max-width: 800px) {
-          font-size: tovw(16px, "mobile");
-        }
+        font-size: inherit;
+        margin: 0;
       }
 
       .copy-button {
+        position: absolute;
+        right: tovw(16px, "desktop-large", 16px);
+        top: tovw(16px, "desktop-large", 16px);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 100;
+
+        @media screen and (max-width: 800px) {
+          right: tovw(12px, "mobile");
+          top: tovw(12px, "mobile");
+        }
+
         svg {
           width: tovw(30px, "desktop-large", 18px);
           height: auto;
-          margin-left: tovw(14px, "desktop-large", 6px);
 
           @media screen and (max-width: 1024px) {
             width: tovw(44px, "desktop");
@@ -289,8 +312,7 @@
     opacity: 0;
     visibility: hidden;
     border-radius: tovw(8px, "desktop-large", 6px);
-    padding: tovw(9px, "desktop-large", 9px) tovw(11px, "desktop-large", 11px)
-      tovw(8px, "desktop-large", 8px);
+    padding: tovw(9px, "desktop-large", 9px) tovw(11px, "desktop-large", 11px) tovw(8px, "desktop-large", 8px);
     background-color: #121212;
     color: white;
     border: 1px solid #3a3a3a;
