@@ -85,9 +85,7 @@ export const LabIntro = () => {
               fill="#EFEFEF"
             />
           </svg>
-          BSMNT LAB is carving out a vanguard position by combining intensive
-          technology with formal design expertise – we are making the internet
-          everything it can be.
+         BRAVOO — we make shit accessible. We digitalize businesses and real life so people don’t get left behind. Simple as that.
         </p>
 
         <div className={s.marquees}>
@@ -141,7 +139,7 @@ const Marquee = ({
       >
         {Array.from({ length: 10 }, (_, i) => (
           <div key={i} className={s.marqueeItem}>
-            the lab <LabSvg />
+Beyond The Ordinary <LabSvg />
           </div>
         ))}
       </div>

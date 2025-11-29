@@ -63,7 +63,7 @@ const capProps: { position: Vector3; rotation: Euler; progress: number }[] = [
 export const CapsModel = () => {
   const innerRef = React.useRef<THREE.Group>(null);
   const { width } = useThree((state) => state.viewport);
-  const { nodes, materials } = useGLTF("/models/Cap.glb") as GLTFResult;
+  const { nodes, materials } = useGLTF("/models/3d.glb") as GLTFResult;
 
   const clonedMaterials: {
     "m_Cap-v2": THREE.MeshStandardMaterial;

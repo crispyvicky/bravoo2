@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import bsmtTeamImg from "../../../../public/footer/basement-team-footer.jpg";
+import bsmtTeamImg from "../../../../public/footer/vickygir.jpg";
 import * as Scrollytelling from "~/lib/scrollytelling-client";
-import QRImg from "../../../../public/footer/QR.svg";
+import QRImg from "../../../../public/footer/QR.png";
 import confetti from "canvas-confetti";
 
 import s from "./footer.module.scss";
 import Link from "next/link";
 import { DottedDiv } from "../../components/dotted-container";
-import basementTeamSVG from "../../../../public/footer/basement-team.svg";
+import basementTeamSVG from "../../../../public/footer/image.svg";
 import { useMedia } from "../../../hooks/use-media";
 import { toVw } from "../../../lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -81,11 +81,11 @@ export const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              sayhi@basement.studio
+            bravoo.ceo@gmail.com
             </Link>
           </div>
           <div>
-            <span>@basement.studio llc {new Date().getFullYear()}</span>
+            <span>@BRAVOO {new Date().getFullYear()}</span>
             <span>all rights reserved</span>
           </div>
         </div>

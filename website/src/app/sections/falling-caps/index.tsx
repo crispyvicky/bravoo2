@@ -25,7 +25,10 @@ const splitText = (text: string, wordClass?: string) => {
   return htmlWords;
 };
 
-const lines = ["We want to help", "make the internet", "everything it can be."];
+const lines = [
+  "We build fast,","we build loud,","we build shit that lasts."
+];
+
 
 export const FallingCaps = () => {
   const splittedText = useMemo(

@@ -1,9 +1,11 @@
+"use client";
+
 import * as Scrollytelling from "~/lib/scrollytelling-client";
 import s from "./horizontal-marquee.module.scss";
 import { forwardRef } from "react";
 
 // const phrase = "OUR WOR IS SERIOUS WE ARE NOT";
-const phrase = "FROM THE LABORATORY...";
+const phrase = "FOR THE FUTURE...";
 const splitted = phrase.split("");
 const charsLength = splitted.length;
 

@@ -108,9 +108,9 @@ export const Hero = () => {
             </defs>
           </svg>
           <div className={s["cta"]}>
-            <pre>
+            {/* <pre>
               <code>npm i @bsmnt/scrollytelling</code>
-            </pre>
+            </pre> */}
             <div className={s["cta--buttons"]}>
             <a
               href="https://github.com/basementstudio/scrollytelling"
@@ -386,32 +386,36 @@ export const Hero = () => {
               </div>
               <div className={s["footer"]}>
                 <p>
-                  We’re a boutique studio of ambitious creatives working at the
-                  edge of performant and immersive digital experiences, giving
-                  110% to bring projects from a realm of ideas to reality
-                  through branding, visual design & development of the highest
-                  quality.
-                </p>
-                <svg
-                  viewBox="0 0 24 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 0.226562L24 6.00007L14 11.7736L14 7.00006L0 7.00006V5.00006L14 5.00007L14 0.226562Z"
-                    fill="white"
-                  />
-                </svg>
-                <p>
-                  We don&apos;t settle, we are intentional about building with
-                  surgical precision and creating extraordinary experiences. We
-                  go the extra mile, and then walk a couple more,
-                  <br /> just for fun.
-                </p>
-                <p>
-                  Sometimes size doesn&apos;t matter. we work for big & small
-                  non-stoppable visionaries. here&apos;s love for them all.
-                </p>
+  We’re a small, sharp, no-bullshit studio built by Vicky — the guy who actually 
+  gives a damn. We work at the edge of high-performance and immersive digital 
+  experiences, putting in stupid levels of effort to drag ideas out of your head 
+  and turn them into real, beautifully built shit through savage branding, 
+  clean visuals, and development that hits harder than it should.
+</p>
+
+<svg
+  viewBox="0 0 24 12"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M14 0.226562L24 6.00007L14 11.7736L14 7.00006L0 7.00006V5.00006L14 5.00007L14 0.226562Z"
+    fill="white"
+  />
+</svg>
+
+<p>
+  We don’t settle — ever. We build with surgical precision and a little bit 
+  of disrespect for “industry standards.” We push until shit looks, feels, and 
+  performs like it has no right to. We go the extra mile, and then walk another 
+  one just because Vicky feels like proving a point.
+</p>
+
+<p>
+  Big brands, small hustlers, whatever — if you’ve got a vision and the guts to 
+  move, we fuck with you. Size doesn’t matter here. Ambition does.
+</p>
+
               </div>
             </div>
           </div>
